@@ -1,0 +1,24 @@
+
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+
+development:
+  <<: *default
+  username: root
+  password: 12344321
+  database: video_cards
+
+test:
+  <<: *default
+  username: root
+  password: 12344321
+  database: video_cards_test
+
+production:
+  <<: *default
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+  database: <%= ENV['DB_PROD_NAME'] %>
