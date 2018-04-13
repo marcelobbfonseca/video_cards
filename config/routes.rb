@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  mount RailsAdmin::Engine => '/boss', as: 'rails_admin'
   devise_for :users
   root to: "home#index"
   resources :users
